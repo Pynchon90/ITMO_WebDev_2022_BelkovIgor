@@ -13,5 +13,8 @@
     "postcss": "^8.4.17",
     "tailwindcss": "^3.1.8",
     "vite": "^3.1.0"
+  },
+  "dependencies": {
+    "carbon-web-components": "^1.21.0"
   }
 }
