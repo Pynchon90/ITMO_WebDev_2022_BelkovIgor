@@ -1,85 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
-  </head>
-  <body>
-  <h1>Header1</h1>
-  <h2>Header2</h2>
-  <h3>Header3</h3>
-  <h4>Header4</h4>
-  <h5>Header5</h5>
-  <h6>Header6</h6>
-  <p>Этот<b> параграф</b> написан <i>для проверки</i> возможностей языка <u>HTML</u></p>
-  Списки бывают
-  <ul>
-    <li>Нумерованные</li>
-    <li>Ненумерованные</li>
-  </ul>
-  <ol>
-    <li>Первый</li>
-    <li>Второй</li>
-    <li>Третий</li>
-  </ol>
-  <form>
-    <label for="TextInput">Введите свой текст:</label><br>
-    <input type="text" id="TextInput" name="TextInput"><br>
-    <label for="EmailInput">Введите свой email:</label><br>
-    <input type="email" id="EmailInput" name="EmailInput"><br>
-    <label for="pwd">Введите свой пароль:</label><br>
-    <input type="password" id="pwd" name="pwd"><br>
-    <label for="DataInput">Введите свою дату:</label><br>
-    <input type="date" id="DataInput" name="DataInput"><br>
-    <label for="Checkbox">Вы согласны с пользовательскими соглашениями?</label><br>
-    <input type="checkbox" id="Checkbox" name="Checkbox"><br>
-    <label for="Radio">Радио:</label><br>
-    <input type="radio" id="Radio" name="Radio"><br>
-    <label for="button">Нажмите на кнопку:</label><br>
-    <button type="button" id="button" onclick="alert('Вы нажали на кнопку!')">Click Me!</button>
+<head>
+  <meta charset="UTF-8"/>
+  <link href="/vite.svg" rel="icon" type="image/svg+xml"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Vite App Welcome</title>
+  <link type="text/css" rel="stylesheet" href="./style.css">
+</head>
+<body class="bg-slate-500">
+<article class="flex flex-col w-96 bg-neutral-50 p-6 mx-auto rounded-lg mt-12">
+  <header class="flex flex-row justify-between items-center">
+    <span style="content: url('https://api.iconify.design/icon-park-solid/youtube.svg?color=red&width=52');">icon</span>
+    <div class="px-4 py-1 bg-green-200 text-green-500 text-xs font-bold rounded-2xl h-full">Free</div>
+  </header>
+  <main class="flex flex-col pt-12">
+    <section class="flex flex-col">
+      <div class="text-base">Videos</div>
+      <div class="text-3xl font-bold mt-2">Youtube</div>
+    </section>
+    <section class="flex flex-row mt-4">
+      <div class="basis-1/3">
+        <h5 class="text-sm text-gray-700">Rating</h5>
+        <h4 class="text-lg font-bold mt-1">5.0</h4>
+      </div>
+      <div class="basis-1/3">
+        <h5 class="text-sm text-gray-700">Size</h5>
+        <h4 class="text-lg font-bold mt-1">95.0 mb</h4>
+      </div>
+      <div class="basis-1/3">
+        <h5 class="text-sm text-gray-700">Downloads</h5>
+        <h4 class="text-lg font-bold mt-1">13.3m</h4>
+      </div>
+    </section>
+  </main>
+  <footer class="pt-10 flex flex-row justify-between">
+    <div style="content: url('https://api.iconify.design/ci/pause-circle-filled.svg?color=%232077fa&width=52&height=52');"></div>
+    text
+    image
+  </footer>
+</article>
 
-  </form>
 
-  <table>
-    <tr>
-      <th colspan="2">Наименование</th>
-      <th>Цена</th>
-    </tr>
-    <tr>
-      <td>1</td>
-      <td>Объект 1</td>
-      <td>50</td>
-    </tr>
-    <tr>
-      <td>2</td>
-      <td>Объект 2</td>
-      <td>75</td>
-    </tr>
-    <tr>
-      <td>3</td>
-      <td>Объект 3</td>
-      <td>100</td>
-    </tr>
-  </table>
 
-  <label for="select"><h3>Список:</h3></label><br>
-  <select id="select">
-    <option>Пункт 1</option>
-    <option>Пункт 2</option>
-    <option>Пункт 3</option>
-    <option>Пункт 4</option>
-    <option>Пункт 5</option>
-  </select>
-
-  <img src="https://cdn.elearningindustry.com/wp-content/uploads/2016/05/top-10-books-every-college-student-read-1024x640.jpeg" alt="альтернативный текст">
-  <svg
-       width="300" height="200">
-    <rect width="100%" height="100%" fill="gray" />
-    <circle cx="150" cy="100" r="90" fill="red" />
-  </svg>
-  <div id="app"></div>
-    <script type="module" src="/main.js"></script>
-  </body>
+</body>
 </html>
