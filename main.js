@@ -1,23 +1,36 @@
-import './style.css'
-import javascriptLogo from './javascript.svg'
-import { setupCounter } from './counter.js'
+const domInpTodoTitle = document.getElementById("inpTodoTitle");
+const domBtnCreateTodo = document.getElementById("btnCreateTodo");
+const domListOfTodos = document.getElementById("listOfTodos");
 
-document.querySelector('#app').innerHTML = `
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-      <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-    </a>
-    <h1>Hello Vite!</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite logo to learn more
-    </p>
-  </div>
-`
+class TodoVO {
+    constructor(id, title, date = new Date()) {
+        this.id = id;
+        this.title = title;
+        this.date = date;
+        this.isCompleted = false;
+    }
+}
 
-setupCounter(document.querySelector('#counter'))
+const listOfTodos = [];
+
+domInpTodoTitle.value = "Todo text";
+
+domBtnCreateTodo.addEventListener("click", (e) => {
+    console.log("> domBtnCreateTodo -> handle(click)", e);
+    const todoTitleValueFromDomInput = domInpTodoTitle.value;
+    console.log(
+        "> domBtnCreateTodo -> todoInputTitleValue:",
+        todoTitleValueFromDomInput
+    );
+
+    const todoId = Date.now().toString();
+    const todoVO = new TodoVO(todoId, todoTitleValueFromDomInput);
+
+    listOfTodos.push(todoVO);
+
+    let output = "";
+    for (let index in listOfTodos) {
+        output += `<li>${listOfTodos[index].title}</li>`;
+    }
+    domListOfTodos.innerHTML = output;
+});
