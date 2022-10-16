@@ -1,61 +1,58 @@
-const domInpTodoTitle = document.getElementById("inpTodoTitle");
-const domBtnCreateTodo = document.getElementById("btnCreateTodo");
-const domListOfTodos = document.getElementById("listOfTodos");
+import TodoVO from './src/model/VOS/TodoVO.js';
 
-domBtnCreateTodo.addEventListener("click", onBtnCreateTodoClick)
+const domInpTodoTitle = document.getElementById('inpTodoTitle');
+const domBtnCreateTodo = document.getElementById('btnCreateTodo');
+const domListOfTodos = document.getElementById('listOfTodos');
 
-class TodoVO {
-    constructor(id, title, date = new Date()) {
-        this.id = id;
-        this.title = title;
-        this.date = date;
-        this.isCompleted = false;
-    }
-}
+domBtnCreateTodo.addEventListener('click', onBtnCreateTodoClick);
 
-const listOfTodos = [];
+const LOCAL_LIST_OF_TODOS = 'listOfTodos';
+
+const localListOfTodos = localStorage.getItem(LOCAL_LIST_OF_TODOS);
+const listOfTodos = localListOfTodos != null ? JSON.parse(localListOfTodos) : [];
+
+console.log('> Initial value -> listOfTodos', listOfTodos);
+
+renderTodoListInContainer(listOfTodos, domListOfTodos);
 
 function onBtnCreateTodoClick(event) {
-    console.log("> domBtnCreateTodo -> handle(click)", event);
-    const todoTitleValueFromDomInput = domInpTodoTitle.value;
-    console.log("> domBtnCreateTodo -> todoInputTitleValue:", todoTitleValueFromDomInput);
+  console.log('> domBtnCreateTodo -> handle(click)', event);
+  const todoTitleValueFromDomInput = domInpTodoTitle.value;
+  if (validateTodoInputTitleValue(todoTitleValueFromDomInput)) {
+    listOfTodos.push(createTodoVO(todoTitleValueFromDomInput));
+    localStorage.setItem('LOCAL_LIST_OF_TODOS', JSON.stringify(listOfTodos));
+    renderTodoListInContainer(listOfTodos, domListOfTodos);
+  }
+  console.log('> domBtnCreateTodo -> todoInputTitleValue:', todoTitleValueFromDomInput);
 
-    //const isInputValueString = typeof todoTitleValueFromDomInput === 'string';
-   //const isInputValueNotNumber = isNaN(parseInt(todoTitleValueFromDomInput))    ;
-   const canCreateTodo =  validateTodoInputTitleValue(todoTitleValueFromDomInput);
-    //    && isInputValueNotNumber
-     //   && todoTitleValueFromDomInput.length > 0;
+  const canCreateTodo = validateTodoInputTitleValue(todoTitleValueFromDomInput);
 
-    if(canCreateTodo){
-        //const todoVO = createTodoVO(todoTitleValueFromDomInput)
-        const todoId = Date.now().toString();
-        const todoVO = new TodoVO(todoId, todoTitleValueFromDomInput);
-        listOfTodos.push(todoVO);
-        let output = "";
-        for (let index in listOfTodos) {
-            output += `<li>${listOfTodos[index].title}</li>`;
-        }
-        domListOfTodos.innerHTML = output;
-    }
+  //  if (canCreateTodo) {
+  //    const todoVO = createTodoVO(todoTitleValueFromDomInput);
+  //    listOfTodos.push(todoVO);
+  //    renderTodoListInContainer(listOfTodos, domListOfTodos);
 }
 
-function validateTodoInputTitleValue(value){
-    const isInputValueString = typeof value === 'string';
-    const isInputValueNotNumber = isNaN(parseInt(value))    ;
-    const result =
-        isInputValueString
-        && isInputValueNotNumber
-        && value.length > 0;
-    console.log('> validateTodoInputTitleValue -> result',{
-        result,
-        isInputValueString,
-        isInputValueNotNumber
-    });
-    return result
+function validateTodoInputTitleValue(value) {
+  const isInputValueString = typeof value === 'string';
+  const isInputValueNotNumber = isNaN(parseInt(value));
+  const result = isInputValueString && isInputValueNotNumber && value.length > 0;
+  console.log('> validateTodoInputTitleValue -> result', {
+    result,
+    isInputValueString,
+    isInputValueNotNumber,
+  });
+  return result;
 }
-
+function renderTodoListInContainer(list, container) {
+  let output = '';
+  for (let index in list) {
+    output += `<li>${list[index].title}</li>`;
+  }
+  container.innerHTML = output;
+}
 function createTodoVO(title) {
-    const todoId = Date.now().toString();
-    //const todoVO = new TodoVO(todoId, title);
-    return  new TodoVO(todoId, title);
+  const todoId = Date.now().toString();
+  //const todoVO = new TodoVO(todoId, title);
+  return new TodoVO(todoId, title);
 }
