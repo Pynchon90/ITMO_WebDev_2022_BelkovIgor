@@ -29,8 +29,9 @@ function onTodoListChange(event) {
   const target = event.target;
   const index = target.id;
   if (index) {
-    const todoVO = listOfTodos[index];
-    console.log('> onTodoListChange -> todoVO', todoVO);
+    const indexInt = parseInt(index.trim());
+    const todoVO = listOfTodos[indexInt];
+    console.log('> onTodoListChange -> todoVO', indexInt, todoVO);
     todoVO.isCompleted = !todoVO.isCompleted;
     saveListOfTodo();
   }
