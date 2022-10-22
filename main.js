@@ -13,16 +13,14 @@ domBtnCreateTodo.addEventListener('keyup', onInpTodoTitleKeyup);
 domListOfTodos.addEventListener('change', onTodoListChange);
 
 const LOCAL_LIST_OF_TODOS = 'listOfTodos';
+const LOCAL_INPUT_TEXT = 'inputText';
 
 const listOfTodos = localStorageListOf(LOCAL_LIST_OF_TODOS);
 
 console.log('> Initial value -> listOfTodos', listOfTodos);
-
+domInpTodoTitle.value = localStorage.getItem(LOCAL_INPUT_TEXT);
 renderTodoListInContainer(listOfTodos, domListOfTodos);
-disableButtonWhenTextInvalid(domBtnCreateTodo, domInpTodoTitle.value, isStringNotNumberAndNotEmpty, {
-  textWhenEnabled: 'Create',
-  textWhenDisabled: 'Enter text',
-});
+disableOrEnableCreateTodoButtonOnTodoInputTitle();
 
 function onTodoListChange(event) {
   console.log('> onTodoListChange -> event', event);
@@ -37,14 +35,15 @@ function onTodoListChange(event) {
   }
 }
 
-function onBtnCreateTodoClick(event) {
+function onBtnCreateTodoClick() {
   const todoTitleValueFromDomInput = domInpTodoTitle.value;
 
   if (isStringNotNumberAndNotEmpty(todoTitleValueFromDomInput)) {
-    listOfTodos.push(TodoVO.createFromTitle(todoTitleValueFromDomInput));
+    createTodoFromTextAndAddToListThenSave(todoTitleValueFromDomInput);
     saveListOfTodo();
+    setInputTextValueAndStoreToLocalStorage();
     renderTodoListInContainer(listOfTodos, domListOfTodos);
-    domInpTodoTitle.value = '';
+    disableOrEnableCreateTodoButtonOnTodoInputTitle();
   }
 }
 //function validateTodoInputTitleValue(value) {
@@ -56,7 +55,8 @@ function onInpTodoTitleKeyup(event) {
   console.log('> onInpTodoTitleKeyup', event);
   const inputValue = event.currentTarget.value;
   console.log('> inputValue', inputValue);
-  disableButtonWhenTextInvalid(domBtnCreateTodo, inputValue, isStringNotNumberAndNotEmpty);
+  disableOrEnableCreateTodoButtonOnTodoInputTitle();
+  localStorage.setItem(LOCAL_INPUT_TEXT, inputValue);
 }
 
 function renderTodoListInContainer(listOfTodoVO, container) {
@@ -67,6 +67,18 @@ function renderTodoListInContainer(listOfTodoVO, container) {
     output += TodoView.createSimpleViewFromVO(index, todoVO);
   }
   container.innerHTML = output;
+}
+
+function createTodoFromTextAndAddToListThenSave(input) {
+  listOfTodos.push(TodoVO.createFromTitle(input));
+}
+function setInputTextValueAndStoreToLocalStorage(clearToText = '') {
+  domInpTodoTitle.value = '';
+  localStorage.setItem(LOCAL_INPUT_TEXT, clearToText);
+}
+
+function disableOrEnableCreateTodoButtonOnTodoInputTitle() {
+  disableButtonWhenTextInvalid(domBtnCreateTodo, domInpTodoTitle.value, isStringNotNumberAndNotEmpty);
 }
 
 function saveListOfTodo() {
