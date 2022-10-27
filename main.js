@@ -1,32 +1,25 @@
-import TodoVO from './src/model/VOS/TodoVO.js';
-import { disableButtonWhenTextInvalid } from './src/utils/domUtils.js';
-import { isStringNotNumberAndNotEmpty } from './src/utils/stringUtils.js';
-import { localStorageListOf, localStorageSaveListOfWithKey } from './src/utils/databaseUtils.js';
-import TodoView from './src/view/TodoView.js';
+const domInpFirstName = document.getElementById('inpFirstName');
+const domInpLastName = document.getElementById('inpLastName');
 
-const domInpTodoTitle = document.getElementById('inpTodoTitle');
-const domBtnCreateTodo = document.getElementById('btnCreateTodo');
-const domListOfTodos = document.getElementById('listOfTodos');
-
-let selectedTodoVO = null;
-let selectedTodoViewItem = null;
-
-domBtnCreateTodo.addEventListener('click', onBtnCreateTodoClick);
-domBtnCreateTodo.addEventListener('keyup', onInpTodoTitleKeyup);
-domListOfTodos.addEventListener('change', onTodoListChange);
-domListOfTodos.addEventListener('click', onTodoDomItemClicked);
+domInpFirstName.addEventListener('keyup', onInpFirstNameKeyup);
+domInpLastName.addEventListener('keyup', onInpLastNameKeyup);
+//domListOfTodos.addEventListener('change', onTodoListChange);
 
 const LOCAL_LIST_OF_TODOS = 'listOfTodos';
 const LOCAL_INPUT_TEXT = 'inputText';
 
 const listOfTodos = localStorageListOf(LOCAL_LIST_OF_TODOS);
 
-console.log('> Initial value -> listOfTodos', listOfTodos);
+/*console.log('> Initial value -> listOfTodos');
 domInpTodoTitle.value = localStorage.getItem(LOCAL_INPUT_TEXT);
-renderTodoListInContainer(listOfTodos, domListOfTodos);
-disableOrEnableCreateTodoButtonOnTodoInputTitle();
+renderTodoListInContainer(listOfTodos, domListOfTodos);*/
 
-function onTodoDomItemClicked(event) {
+renderFullName(domInpFirstName);
+renderFullName(domInpLastName);
+
+/*disableOrEnableCreateTodoButtonOnTodoInputTitle();*/
+
+/*function onTodoDomItemClicked(event) {
   const domElement = event.target;
   const target = event.target;
   console.log('> onTodoDomItemClicked click -> dataset:', target.dataset);
@@ -80,21 +73,50 @@ function onBtnCreateTodoClick() {
     renderTodoListInContainer(listOfTodos, domListOfTodos);
     disableOrEnableCreateTodoButtonOnTodoInputTitle();
   }
-}
+}*/
 //function validateTodoInputTitleValue(value) {
 //  const isInputValueString = typeof value === 'string';
 //  const isInputValeNotNumber = isNaN(parseInt(value));
 //}
 
-function onInpTodoTitleKeyup(event) {
+function onInpFirstNameKeyup(event) {
   console.log('> onInpTodoTitleKeyup', event);
   const inputValue = event.currentTarget.value;
   console.log('> inputValue', inputValue);
-  disableOrEnableCreateTodoButtonOnTodoInputTitle();
+  localStorage.setItem(LOCAL_INPUT_TEXT, inputValue);
+  renderTodoListInContainer(inputValue, domInpFirstName);
+}
+
+function onInpLastNameKeyup(event) {
+  console.log('> onInpTodoTitleKeyup', event);
+  const inputValue = event.currentTarget.value;
+  console.log('> inputValue', inputValue);
   localStorage.setItem(LOCAL_INPUT_TEXT, inputValue);
 }
 
-function renderTodoListInContainer(listOfTodoVO, container) {
+class NameView {
+  static NAME_VIEW_ITEM = 'Name';
+  static createSimpleViewFromVO(vo) {
+    return `
+            <div 
+            style="user-select: none; width: 100%;"
+            data-type="${NameView.NAME_VIEW_ITEM}"
+            id="${vo.id}"
+            >
+                ${vo.title}
+                </div>
+           `;
+  }
+}
+function renderFullName(name, container) {
+  let output = '';
+  let todoVO;
+  todoVO = name;
+  output += NameView.createSimpleViewFromVO(name);
+  container.innerHTML = output;
+}
+
+/*function renderTodoListInContainer(listOfTodoVO, container) {
   let output = '';
   let todoVO;
   for (let index in listOfTodoVO) {
@@ -102,8 +124,9 @@ function renderTodoListInContainer(listOfTodoVO, container) {
     output += TodoView.createSimpleViewFromVO(index, todoVO);
   }
   container.innerHTML = output;
-}
+}*/
 
+/*
 function createTodoFromTextAndAddToListThenSave(input) {
   listOfTodos.push(TodoVO.createFromTitle(input));
 }
@@ -119,3 +142,4 @@ function disableOrEnableCreateTodoButtonOnTodoInputTitle() {
 function saveListOfTodo() {
   localStorageSaveListOfWithKey(LOCAL_LIST_OF_TODOS, listOfTodos);
 }
+*/
