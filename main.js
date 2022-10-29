@@ -1,121 +1,48 @@
-import TodoVO from './src/model/VOS/TodoVO.js';
-import { disableButtonWhenTextInvalid } from './src/utils/domUtils.js';
-import { isStringNotNumberAndNotEmpty } from './src/utils/stringUtils.js';
-import { localStorageListOf, localStorageSaveListOfWithKey } from './src/utils/databaseUtils.js';
-import TodoView from './src/view/TodoView.js';
+// **Basics**
 
-const domInpTodoTitle = document.getElementById('inpTodoTitle');
-const domBtnCreateTodo = document.getElementById('btnCreateTodo');
-const domListOfTodos = document.getElementById('listOfTodos');
-
-let selectedTodoVO = null;
-let selectedTodoViewItem = null;
-
-domBtnCreateTodo.addEventListener('click', onBtnCreateTodoClick);
-domBtnCreateTodo.addEventListener('keyup', onInpTodoTitleKeyup);
-domListOfTodos.addEventListener('change', onTodoListChange);
-domListOfTodos.addEventListener('click', onTodoDomItemClicked);
-
-const LOCAL_LIST_OF_TODOS = 'listOfTodos';
-const LOCAL_INPUT_TEXT = 'inputText';
-
-const listOfTodos = localStorageListOf(LOCAL_LIST_OF_TODOS);
-
-console.log('> Initial value -> listOfTodos', listOfTodos);
-domInpTodoTitle.value = localStorage.getItem(LOCAL_INPUT_TEXT);
-renderTodoListInContainer(listOfTodos, domListOfTodos);
-disableOrEnableCreateTodoButtonOnTodoInputTitle();
-
-function onTodoDomItemClicked(event) {
-  const domElement = event.target;
-  const target = event.target;
-  console.log('> onTodoDomItemClicked click -> dataset:', target.dataset);
-  if (domElement.dataset['type'] !== TodoView.TODO_VIEW_ITEM) return;
-
-  const SELECTED_ITEM_BACKGROUND_KEY = 'lightgray';
-
-  function validateTodoItemById(vo) {
-    return vo.id === todoId;
-  }
-  const todoId = target.id;
-  const todoVO = listOfTodos.find(validateTodoItemById);
-
-  const isSelected = target.style.backgroundColor === SELECTED_ITEM_BACKGROUND_KEY;
-
-  if (isSelected) {
-    target.style.backgroundColor = '';
-  } else {
-    target.style.backgroundColor = SELECTED_ITEM_BACKGROUND_KEY;
-  }
-}
-
-function onTodoListChange(event) {
-  console.log('> onTodoListChange -> event', event);
-  const target = event.target;
-  const index = target.id;
-  if (index) {
-    const indexInt = parseInt(index.trim());
-    const todoVO = listOfTodos[indexInt];
-    console.log('> onTodoListChange -> todoVO', indexInt, todoVO);
-    todoVO.isCompleted = !todoVO.isCompleted;
-    saveListOfTodo();
-  }
-}
-
-function onBtnCreateTodoClick() {
-  const todoTitleValueFromDomInput = domInpTodoTitle.value;
-
-  if (isStringNotNumberAndNotEmpty(todoTitleValueFromDomInput)) {
-    //if (selectedTodoVO){
-    //  selectedTodoVO.title = todoTitleValueFromDomInput;
-    //  resetSelectedTodo();
-    //}
-    //else{
-    //  createTodoFromTextAndAddToListThenSave(todoTitleValueFromDomInput, listOfTodos);
-    //  clearInputTextAndLocalStorage();
-    //}
-    createTodoFromTextAndAddToListThenSave(todoTitleValueFromDomInput);
-    saveListOfTodo();
-    setInputTextValueAndStoreToLocalStorage();
-    renderTodoListInContainer(listOfTodos, domListOfTodos);
-    disableOrEnableCreateTodoButtonOnTodoInputTitle();
-  }
-}
-//function validateTodoInputTitleValue(value) {
-//  const isInputValueString = typeof value === 'string';
-//  const isInputValeNotNumber = isNaN(parseInt(value));
-//}
-
-function onInpTodoTitleKeyup(event) {
-  console.log('> onInpTodoTitleKeyup', event);
-  const inputValue = event.currentTarget.value;
-  console.log('> inputValue', inputValue);
-  disableOrEnableCreateTodoButtonOnTodoInputTitle();
-  localStorage.setItem(LOCAL_INPUT_TEXT, inputValue);
-}
-
-function renderTodoListInContainer(listOfTodoVO, container) {
-  let output = '';
-  let todoVO;
-  for (let index in listOfTodoVO) {
-    todoVO = listOfTodoVO[index];
-    output += TodoView.createSimpleViewFromVO(index, todoVO);
-  }
-  container.innerHTML = output;
-}
-
-function createTodoFromTextAndAddToListThenSave(input) {
-  listOfTodos.push(TodoVO.createFromTitle(input));
-}
-function setInputTextValueAndStoreToLocalStorage(clearToText = '') {
-  domInpTodoTitle.value = '';
-  localStorage.setItem(LOCAL_INPUT_TEXT, clearToText);
-}
-
-function disableOrEnableCreateTodoButtonOnTodoInputTitle() {
-  disableButtonWhenTextInvalid(domBtnCreateTodo, domInpTodoTitle.value, isStringNotNumberAndNotEmpty);
-}
-
-function saveListOfTodo() {
-  localStorageSaveListOfWithKey(LOCAL_LIST_OF_TODOS, listOfTodos);
-}
+// import * as Example1 from '@/functions/example_1_0_addThem.js';
+// import * as Example1_1 from '@/functions/example_1_1.js';
+// import * as Example2 from '@/functions/example_2.js';
+//import * as Example3 from '@/functions/example_3.js';
+//import * as Example4 from '@/functions/example_4.js';
+//import * as Example5 from '@/functions/example_5.js';
+// import * as Example6 from '@/functions/example_6.js';
+// import * as Example7 from '@/functions/example_7_eatBagel.js';
+// import * as Example8 from '@/functions/example_8_0_eatBagel.js';
+// import * as Example8_1 from '@/functions/example_8_1_eatBagelObject.js';
+// import * as Example9 from '@/functions/example_9_eatBagel.js';
+// import * as Example10 from '@/functions/example_10_addThem.js';
+// import * as Example11 from '@/functions/example_11.js';
+// import * as Example12 from '@/functions/example_12.js';
+// import * as Example13 from '@/functions/example_13.js';
+// import * as Example14 from '@/functions/example_14.js';
+// import * as Example15 from '@/functions/example_15_eatEmUp.js';
+// import * as Example16 from '@/functions/example_16_eatEmUp.js';
+// import * as Example17 from '@/functions/example_17_makeSandwich.js';
+// import * as Example18 from '@/functions/example_18_makeSandwich.js';
+// import * as Example19 from '@/functions/example_19_makeSandwich.js';
+// import * as Example20 from '@/functions/example_20_makeSandwich.js';
+// import * as Example21 from '@/functions/example_21_hoisting.js';
+// import * as Example22_0 from '@/functions/example_22_0_hoisting.js';
+// import * as Example22_1 from '@/functions/example_22_1_hoisting.js';
+// import * as Example23 from '@/functions/example_23_hoisting.js';
+// import * as Example24 from '@/functions/example_24_hoisting.js';
+// import * as Example25 from '@/functions/example_25_hoisting.js';
+// import * as Example26 from '@/functions/example_26_hoisting.js';
+// import * as Example27 from '@/functions/example_27_hoisting.js';
+// import * as Example28 from '@/functions/example_28_hoisting.js';
+// import * as Example29 from '@/functions/example_29_hoisting.js';
+// import * as Example30 from '@/functions/example_30_hoisting.js';
+// import * as Example31 from '@/functions/example_31_hoisting.js';
+// import * as Example32 from '@/functions/example_32_hoisting.js';
+// import * as Example33 from '@/functions/example_33_hoisting.js';
+// import * as Example34 from '@/functions/example_34_hoisting.js';
+// import * as Example35 from '@/functions/example_35_closure.js';
+// import * as Example36 from '@/functions/example_36_closure.js';
+// import * as Example37 from '@/functions/example_37_closure.js';
+// import * as Example38 from '@/functions/example_38_closure.js';
+// import * as Example39 from '@/functions/example_39_closure.js';
+// import * as Example40 from '@/functions/example_40_closure.js';
+// import * as Example41 from '@/functions/example_41_closure.js';
+// import * as Example42 from '@/functions/example_42_closure.js';
+// import * as Example43 from '@/functions/example_43_closure.js';
