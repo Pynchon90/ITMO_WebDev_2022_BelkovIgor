@@ -1,4 +1,4 @@
-import { Earth, Mars, Moon, PlanetComposable, Position, RotatedPlanet, Sun } from '@/solar-system.js';
+import { Earth, Mars, Moon, PlanetComposable, Position, RotatedPlanet, Sun } from './src/solar-system.js';
 
 const canvas = document.createElement('canvas');
 canvas.width = window.innerWidth;
