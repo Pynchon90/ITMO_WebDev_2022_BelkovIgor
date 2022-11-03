@@ -1,4 +1,15 @@
-import { Earth, Mars, Moon, PlanetComposable, Position, RotatedPlanet, Sun } from './src/solar-system.js';
+import {
+  Earth,
+  Mars,
+  Moon,
+  MoveRotateAlgorithm,
+  PlanetComposable,
+  Position,
+  RenderCirclePlanetAlgorithm,
+  RenderSquarePlanetAlgorithm,
+  RotatedPlanet,
+  Sun,
+} from './src/solar-system.js';
 
 const canvas = document.createElement('canvas');
 canvas.width = window.innerWidth;
@@ -16,54 +27,6 @@ const moon = new Moon(earth.position, earth.size + 30);
 
 const planets = [sun, earth, moon, mars];
 
-window.requestAnimationFrame(renderPlanets);
-
-class RenderCirclePlanetAlgorithm {
-  constructor(color, atmosphere, size) {
-    this.color = color;
-    this.atmosphere = atmosphere;
-    this.size = size;
-  }
-  render(ctx, position) {
-    ctx.fillStyle = this.color;
-    ctx.beginPath();
-    ctx.strokeStyle = this.atmosphere;
-    ctx.arc(position.x, position.y, this.size, 0, 2 * Math.PI);
-    ctx.stroke();
-    ctx.fill();
-  }
-}
-
-class RenderSquarePlanetAlgorithm {
-  constructor(color, atmosphere, size) {
-    this.color = color;
-    this.atmosphere = atmosphere;
-    this.size = size;
-  }
-  render(ctx, position) {
-    ctx.fillStyle = this.color;
-    ctx.beginPath();
-    ctx.strokeStyle = this.atmosphere;
-    ctx.rect(position.x, position.y, this.size, this.size);
-    ctx.stroke();
-    ctx.fill();
-  }
-}
-
-class MoveRotateAlgorithm {
-  constructor(radius, speed) {
-    this.radius = radius;
-    this.speed = speed;
-    this.alpha = 0;
-  }
-  move(position, offset) {
-    this.alpha += this.speed / Math.PI;
-    position.x = this.radius * Math.sin(this.alpha) + offset.x;
-    position.y = this.radius * Math.cos(this.alpha) + offset.y;
-    if (this.alpha >= 2 * Math.PI) this.alpha = 0;
-  }
-}
-
 const r1 = new RenderCirclePlanetAlgorithm('blue', 'lightblue', 50);
 const r2 = new RenderSquarePlanetAlgorithm('red', 'lightblue', 30);
 
@@ -74,20 +37,48 @@ document.onclick = (e) => {
   if (planetComposable.renderAlgorithm instanceof RenderCirclePlanetAlgorithm) {
     planetComposable.renderAlgorithm = r2;
   } else planetComposable.renderAlgorithm = r1;
+  asteroids.push(createAsteroid(e.pageX, e.pageY));
 };
+
+const asteroids = [...new Array(5)].map(createAsteroid);
 
 function renderPlanets() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  planetComposable.render(ctx);
   planetComposable.move();
-
+  renderAsteroids(canvas, asteroids);
   planets.forEach((item) => {
     if (item instanceof RotatedPlanet) {
       item.rotate();
     }
     item.render(ctx);
   });
-
+  planetComposable.render(ctx);
   window.requestAnimationFrame(renderPlanets);
 }
+
+function renderAsteroids(canvas, array) {
+  const ctx = canvas.getContext('2d');
+  let counter = array.length;
+  const draw = (index) => {
+    const position = array[index];
+    ctx.fillStyle = 'black';
+    ctx.fillRect(position.x, position.y, 10, 10);
+    ctx.stroke();
+    ctx.fill();
+    if (++index < counter) draw(index);
+  };
+  draw(0);
+}
+
+function randomRange(max, min) {
+  return Math.random() * (max - min) + min;
+}
+
+function createAsteroid(x, y) {
+  const borderSize = 40;
+  const randomX = x || randomRange(canvas.width - borderSize, borderSize);
+  const randomY = y || randomRange(canvas.height - borderSize, borderSize);
+  return new Position(randomX, randomY);
+}
+window.requestAnimationFrame(renderPlanets);

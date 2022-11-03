@@ -98,3 +98,49 @@ export class Moon extends RotatedPlanet {
     super.render(ctx);
   }
 }
+
+export class RenderCirclePlanetAlgorithm {
+  constructor(color, atmosphere, size) {
+    this.color = color;
+    this.atmosphere = atmosphere;
+    this.size = size;
+  }
+  render(ctx, position) {
+    ctx.fillStyle = this.color;
+    ctx.beginPath();
+    ctx.strokeStyle = this.atmosphere;
+    ctx.arc(position.x, position.y, this.size, 0, 2 * Math.PI);
+    ctx.stroke();
+    ctx.fill();
+  }
+}
+
+export class RenderSquarePlanetAlgorithm {
+  constructor(color, atmosphere, size) {
+    this.color = color;
+    this.atmosphere = atmosphere;
+    this.size = size;
+  }
+  render(ctx, position) {
+    ctx.fillStyle = this.color;
+    ctx.beginPath();
+    ctx.strokeStyle = this.atmosphere;
+    ctx.rect(position.x, position.y, this.size, this.size);
+    ctx.stroke();
+    ctx.fill();
+  }
+}
+
+export class MoveRotateAlgorithm {
+  constructor(radius, speed) {
+    this.radius = radius;
+    this.speed = speed;
+    this.alpha = 0;
+  }
+  move(position, offset) {
+    this.alpha += this.speed / Math.PI;
+    position.x = this.radius * Math.sin(this.alpha) + offset.x;
+    position.y = this.radius * Math.cos(this.alpha) + offset.y;
+    if (this.alpha >= 2 * Math.PI) this.alpha = 0;
+  }
+}
