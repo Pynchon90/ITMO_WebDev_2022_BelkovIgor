@@ -6,23 +6,13 @@ export class Position {
 }
 
 export class Planet {
-  constructor(color, atmosphere, position, size, renderAlgorithm, rotateAlgorithm) {
-    this.renderAlgorithm = renderAlgorithm;
-    this.rotateAlgorithm = rotateAlgorithm;
+  constructor(color, atmosphere, position, size) {
     this.color = color;
     this.atmosphere = atmosphere;
     this.position = position;
     this.size = size;
   }
-  rotate() {
-    if (this.rotateAlgorithm) {
-      this.rotateAlgorithm.rotate();
-    }
-  }
   render(ctx) {
-    if (this.renderAlgorithm) {
-      this.renderAlgorithm.render(ctx);
-    }
     ctx.fillStyle = this.color;
     ctx.beginPath();
     ctx.strokeStyle = this.atmosphere;
@@ -36,17 +26,18 @@ export class Planet {
 export class PlanetComposable {
   constructor(position, renderAlgorithm, moveAlgorithm) {
     this.position = position;
+    this.offset = new Position(0, 0);
     this.renderAlgorithm = renderAlgorithm;
     this.moveAlgorithm = moveAlgorithm;
   }
-  rotate() {
+  move() {
     if (this.moveAlgorithm) {
-      this.moveAlgorithm.rotate();
+      this.moveAlgorithm.move(this.position, this.offset);
     }
   }
   render(ctx) {
     if (this.renderAlgorithm) {
-      this.renderAlgorithm.render(ctx);
+      this.renderAlgorithm.render(ctx, this.position);
     }
   }
 }
@@ -60,16 +51,15 @@ export class Sun extends Planet {
 export class RotatedPlanet extends Planet {
   constructor(color, atmosphere, size, center, radius, speed) {
     super(color, atmosphere, new Position(center.x + radius + size, center.y + radius + size), size);
-    this._radius = radius;
+    this.radius = radius;
     this.center = center;
     this.alpha = 0;
     this.speed = speed;
   }
-
   rotate() {
     this.alpha += this.speed / Math.PI;
-    this.position.x = this._radius * Math.sin(this.alpha) + this.center.x;
-    this.position.y = this._radius * Math.cos(this.alpha) + this.center.y;
+    this.position.x = this.radius * Math.sin(this.alpha) + this.center.x;
+    this.position.y = this.radius * Math.cos(this.alpha) + this.center.y;
     if (this.alpha >= 2 * Math.PI) this.alpha = 0;
   }
 }
@@ -77,12 +67,6 @@ export class RotatedPlanet extends Planet {
 export class Earth extends RotatedPlanet {
   constructor(center, radius) {
     super('green', 'blue', 40, center, radius, 0.03);
-    this._radius = radius;
-    this.center = center;
-    this.alpha = 0;
-  }
-  get radius() {
-    return this._radius + this.size;
   }
   render(ctx) {
     super.render(ctx);
@@ -95,13 +79,7 @@ export class Earth extends RotatedPlanet {
 
 export class Mars extends RotatedPlanet {
   constructor(center, radius) {
-    super('yellow', 'palevioletred', 20, center, radius, 0.05);
-    this._radius = radius;
-    this.center = center;
-    this.alpha = 10;
-  }
-  get radius() {
-    return this._radius + this.size;
+    super('lightsalmon', 'palevioletred', 20, center, radius, 0.05);
   }
   render(ctx) {
     super.render(ctx);
@@ -111,18 +89,12 @@ export class Mars extends RotatedPlanet {
     ctx.fill();
   }
 }
+
 export class Moon extends RotatedPlanet {
   constructor(center, radius) {
-    super('gray', 'gray', 10, center, radius, 0.1);
-    this._radius = radius;
-    this.center = center;
-    this.alpha = 0;
+    super('gray', 'palevioletred', 5, center, radius, -0.1);
   }
   render(ctx) {
     super.render(ctx);
-    ctx.fillStyle = 'gray';
-    ctx.beginPath();
-    ctx.arc(this.position.x, this.position.y, this.size / 2, 0, 2 * Math.PI);
-    ctx.fill();
   }
 }
