@@ -1,4 +1,4 @@
-import { Sun, Position, Earth, Mars, Moon, RotatedPlanet } from './src/solar-system.js';
+import { Sun, Position, Earth, Mars, Moon, RotatedPlanet, PlanetComposable } from './src/solar-system.js';
 
 const canvas = document.createElement('canvas');
 
@@ -19,9 +19,48 @@ const renderObjects = [sun, earth, mars, moon];
 
 window.requestAnimationFrame(renderPlanets);
 
+class renderCirclePlanetAlgorithm {
+  constructor(color, atmosphere, size) {
+    this.color = color;
+    this.atmosphere = atmosphere;
+    this.size = size;
+  }
+  render(ctx, position) {
+    ctx.fillStyle = this.color;
+    ctx.beginPath();
+    ctx.strokeStyle = this.atmosphere;
+    ctx.arc(position.x, position.y, this.size, 0, 2 * Math.PI);
+    ctx.stroke();
+    ctx.fill();
+  }
+}
+
+class MoveRotateAlgorithm {
+  constructor(center, radius, speed) {
+    this.center = center;
+    this.radius = radius;
+    this.speed = speed;
+    this.alpha = 0;
+  }
+  move(position, center) {
+    this.alpha += this.speed / Math.PI;
+    position.x = this.radius * Math.sin(this.alpha) + this.center.x;
+    position.y = this.radius * Math.cos(this.alpha) + this.center.y;
+    if (this.alpha >= 2 * Math.PI) this.alpha = 0;
+  }
+}
+const planetComposable = new PlanetComposable(
+  new Position(100, 100),
+  new renderCirclePlanetAlgorithm('blue', 'lightblue', 50),
+  new MoveRotateAlgorithm(sun.position, 100, 0.05)
+);
+document.onclick = (e) => {
+  planetComposable.position = new Position(e.pageX, e.pageY);
+};
 function renderPlanets() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-
+  //planetComposable.render(ctx);
+  //planetComposable.rotate();
   renderObjects.forEach((item) => {
     if (!(item instanceof RotatedPlanet)) {
       item.rotate();
