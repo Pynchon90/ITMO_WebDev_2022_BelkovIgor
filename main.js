@@ -40,7 +40,7 @@ document.onclick = (e) => {
   asteroids.push(createAsteroid(e.pageX, e.pageY));
 };
 
-const asteroids = [...new Array(5)].map(createAsteroid);
+const asteroids = [...new Array(5)].map(() => createAsteroid());
 
 function renderPlanets() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -71,7 +71,8 @@ function renderAsteroids(canvas, array) {
   draw(0);
 }
 
-function randomRange(max, min) {
+function randomRange(max, min = 0) {
+  if (isNaN(max) || isNaN(min)) throw new Error('> randomRange - error: "Input parameters must be a number"');
   return Math.random() * (max - min) + min;
 }
 
