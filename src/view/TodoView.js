@@ -1,5 +1,10 @@
 class TodoView {
   static TODO_VIEW_ITEM = 'todoitem';
+
+  static isDomElementMatch(domElement) {
+    return domElement.dataset.type === TodoView.TODO_VIEW_ITEM;
+  }
+
   static createSimpleViewFromVO(index, vo) {
     const checked = vo.isCompleted ? 'checked' : '';
     return `

@@ -9,7 +9,8 @@ const domBtnCreateTodo = document.getElementById('btnCreateTodo');
 const domListOfTodos = document.getElementById('listOfTodos');
 
 let selectedTodoVO = null;
-let selectedTodoViewItem = null;
+let selectedTodoDom = null;
+const hasSelectedTodo = () => !!selectedTodoVO;
 
 domBtnCreateTodo.addEventListener('click', onBtnCreateTodoClick);
 domInpTodoTitle.addEventListener('keyup', onInpTodoTitleKeyup);
@@ -30,22 +31,26 @@ disableOrEnable_CreateTodoButtonOnTodoInputTitle();
 function onTodoDomItemClicked(event) {
   const domElement = event.target;
   // console.log('> onTodoDomItemClicked click -> dataset:', target.dataset);
-  if (domElement.dataset['type'] !== TodoView.TODO_VIEW_ITEM) return;
-
-  const SELECTED_ITEM_BACKGROUND_KEY = 'lightgray';
-
+  const isNotTypeViewItem = domElement.dataset['type'] !== TodoView.TODO_VIEW_ITEM;
+  if (!TodoView.isDomElementMatch(domElement)) return;
   const todoId = domElement.id;
-  const todoVO = listOfTodos.find((vo) => vo.id === todoId);
+  const currentTodoVO = listOfTodos.find((vo) => vo.id === domElement.id);
+  const isCurrentTodoSelected = selectedTodoVO === currentTodoVO;
 
-  const isSelected = domElement.style.backgroundColor === SELECTED_ITEM_BACKGROUND_KEY;
+  if (hasSelectedTodo()) resetSelectedTodo();
+  /*domInpTodoTitle.value = '';
+    selectedTodoDom.style.backgroundColor = '';
+    domBtnCreateTodo.innerText = 'Create';
+    selectedTodoDom = null;
+    selectedTodoVO = null;*/
 
-  if (isSelected) {
-    domInpTodoTitle.value = '';
-    domElement.style.backgroundColor = '';
-  } else {
-    selectedTodoVO = todoVO;
-    domInpTodoTitle.value = todoVO.title;
-    domElement.style.backgroundColor = SELECTED_ITEM_BACKGROUND_KEY;
+  if (!isCurrentTodoSelected) {
+    selectedTodoVO = currentTodoVO;
+    selectedTodoDom = domElement;
+    domBtnCreateTodo.innerText = 'Update';
+    domInpTodoTitle.value = currentTodoVO.title;
+    selectedTodoDom.style.backgroundColor = 'lightgray';
+    onInpTodoTitleKeyup();
   }
 }
 
@@ -82,13 +87,13 @@ function onInpTodoTitleKeyup() {
   // console.log('> onInpTodoTitleKeyup:', event);
   const inputValue = domInpTodoTitle.value;
   // console.log('> onInpTodoTitleKeyup:', inputValue);
-  if (selectedTodoVO == null) {
-    localStorage.setItem(LOCAL_INPUT_TEXT, inputValue);
-    disableOrEnable_CreateTodoButtonOnTodoInputTitle();
-  } else {
+  if (hasSelectedTodo()) {
     disableOrEnable_CreateTodoButtonOnTodoInputTitle(() => {
       return isStringNotNumberAndNotEmpty(inputValue) && selectedTodoVO.title !== inputValue;
     });
+  } else {
+    localStorage.setItem(LOCAL_INPUT_TEXT, inputValue);
+    disableOrEnable_CreateTodoButtonOnTodoInputTitle();
   }
 }
 
@@ -106,9 +111,9 @@ function resetSelectedTodo() {
   console.log('> resetSelectedTodo -> selectedTodoVO:', selectedTodoVO);
   domBtnCreateTodo.innerText = 'Create';
   domInpTodoTitle.value = localStorage.getItem(LOCAL_INPUT_TEXT);
-  if (selectedTodoViewItem) selectedTodoViewItem.style.backgroundColor = '';
+  if (selectedTodoDom) selectedTodoDom.style.backgroundColor = '';
   selectedTodoVO = null;
-  selectedTodoViewItem = null;
+  selectedTodoDom = null;
   disableOrEnable_CreateTodoButtonOnTodoInputTitle();
 }
 
