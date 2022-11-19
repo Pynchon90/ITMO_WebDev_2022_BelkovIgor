@@ -3,10 +3,13 @@ import { disableButtonWhenTextInvalid } from './src/utils/domUtils.js';
 import { isStringNotNumberAndNotEmpty } from './src/utils/stringUtils.js';
 import { localStorageListOf, localStorageSaveListOfWithKey } from './src/utils/databaseUtils.js';
 import TodoView from './src/view/TodoView.js';
+import ServerService from './src/services/ServerService.js';
 
-const domInpTodoTitle = document.getElementById('inpTodoTitle');
-const domBtnCreateTodo = document.getElementById('btnCreateTodo');
-const domListOfTodos = document.getElementById('listOfTodos');
+const $ = document.getElementById.bind(document);
+
+const domInpTodoTitle = $('inpTodoTitle');
+const domBtnCreateTodo = $('btnCreateTodo');
+const domListOfTodos = $('listOfTodos');
 
 let selectedTodoVO = null;
 let selectedTodoDom = null;
@@ -16,6 +19,12 @@ const debug = console.log;
 console.log = (...args) => {
   if (import.meta.env.DEV) debug(...args);
 };
+
+let listOfTodos = [];
+const serverService = new ServerService(import.meta.env.VITE_DATA_SERVER);
+serverService.requestTodos().then((todoList) => {
+  $('app').style.visibility = 'visible';
+});
 
 domBtnCreateTodo.addEventListener('click', onBtnCreateTodoClick);
 domInpTodoTitle.addEventListener('keyup', onInpTodoTitleKeyup);
@@ -28,15 +37,6 @@ const LOCAL_INPUT_TEXT = 'inputText';
 const listOfTodos = localStorageListOf(LOCAL_LIST_OF_TODOS);
 
 console.log('> Initial value -> listOfTodos', listOfTodos);
-
-const delay = (time) =>
-  new Promise((resolve, reject) => {
-    console.log('> delay -> created');
-    setTimeout(() => {
-      console.log('delay -> setTimeout: ready');
-      resolve(time);
-    }, time);
-  });
 
 domInpTodoTitle.value = localStorage.getItem(LOCAL_INPUT_TEXT);
 render_TodoListInContainer(listOfTodos, domListOfTodos);
@@ -89,7 +89,7 @@ async function onBtnCreateTodoClick(event) {
   const isStringValid = isStringNotNumberAndNotEmpty(todoTitle_Value_FromDomInput);
 
   if (isStringValid) {
-    const result = await delay(1000)
+    /* const result = await delay(1000)
       .then((param) => {
         console.log('>delay -> then:data, param');
         return param ? param * 2 : 0;
@@ -98,7 +98,7 @@ async function onBtnCreateTodoClick(event) {
         console.log('>delay -> then:data 2, param');
         return `time = ${param}`;
       });
-    console.log('> result -> result', result);
+    console.log('> result -> result', result);*/
     //delay(1000).then(() => {
     create_TodoFromTextAndAddToList(todoTitle_Value_FromDomInput, listOfTodos);
     clear_InputTextAndLocalStorage();

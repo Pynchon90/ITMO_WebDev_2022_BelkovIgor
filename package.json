@@ -8,6 +8,8 @@
     "build": "vite build",
     "preview": "vite preview",
     "cy:open": "yarn dev & cypress open --e2e --config-file=cypress.config.js",
+    "server:simple": "simple-server dist 3000",
+    "server:json": "json-server --watch db.json --port 3003 --static dist",
     "test": "vitest",
     "coverage": "vitest run --coverage"
   },
@@ -15,6 +17,7 @@
     "@vitest/ui": "^0.25.1",
     "autoprefixer": "^10.4.12",
     "cypress": "^10.10.0",
+    "json-server": "^0.17.1",
     "postcss": "^8.4.17",
     "tailwindcss": "^3.1.8",
     "vite": "^3.1.0",
