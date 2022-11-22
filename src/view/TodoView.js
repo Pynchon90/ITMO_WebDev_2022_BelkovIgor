@@ -1,5 +1,6 @@
 class TodoView {
   static TODO_VIEW_ITEM = 'todoitem';
+  static TODO_DELETE_BUTTON = 'delete-button';
 
   static isDomElementMatch(domElement) {
     return domElement.dataset.type === TodoView.TODO_VIEW_ITEM;
