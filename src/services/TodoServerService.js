@@ -45,6 +45,16 @@ class TodoServerService {
         throw error;
       });
   }
+  async deleteTodo(id) {
+    return fetch(`${this.path}/${id}`, {
+      method: 'DELETE',
+    })
+      .then((response) => processResponse(response, 'saveTodo'))
+      .catch((error) => {
+        console.log(`> ServerService -> requestTodos: error = ${error}`);
+        throw error;
+      });
+  }
 }
 
 export default TodoServerService;
