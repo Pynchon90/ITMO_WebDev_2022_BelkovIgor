@@ -53,3 +53,10 @@ p.counter-value {
   font-weight: normal;
 }
 </style>
+<style lang="scss" scoped>
+.counter {
+  &button{
+    background-color: red;
+  }
+}
+</style>
