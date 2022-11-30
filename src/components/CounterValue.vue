@@ -9,7 +9,12 @@ export default {
   props:{
     title: '',
     value: 0,
-  }
+  },
+  computed:{
+    isCounterAlert() {
+      return this.value >= 10;
+    },
+  },
 };
 </script>
 
@@ -18,5 +23,9 @@ p.counter-value {
   color: red;
   font-size: 2rem;
   font-weight: normal;
-}
+&.alert {
+                         background-color: lightcoral;
+                       }
+};
+
 </style>
