@@ -1,5 +1,5 @@
 <template>
-  <p class="counter-value">
+  <p class="value" :class="{alert: isCounterAlert }">
      <span style="color: blue"> {{title}} </span> :{{ value }}
   </p>
 </template>
@@ -9,6 +9,7 @@ export default {
   props:{
     title: '',
     value: 0,
+    showAlert: false,
   },
   computed:{
     isCounterAlert() {
@@ -18,14 +19,15 @@ export default {
 };
 </script>
 
-<style scoped>
-p.counter-value {
+<style lang="scss" scoped>
+.value {
   color: red;
   font-size: 2rem;
   font-weight: normal;
+
 &.alert {
-                         background-color: lightcoral;
-                       }
+  background-color: lightcoral;
+}
 };
 
 </style>
