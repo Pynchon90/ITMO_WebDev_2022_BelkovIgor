@@ -1,11 +1,19 @@
-class TodoVO {
+interface ITodoVO {
+  get id(): string;
+  isCompleted: boolean;
+  title: string;
+}
+
+class TodoVO implements ITodoVO {
   private readonly _id: string;
   private readonly _date: Date;
 
   public isCompleted: boolean;
   public title: string;
 
-  get id() { return this._id; }
+  get id() {
+    return this._id;
+  }
 
   static createFromTitle(title: string, id?: string) {
     const todoId = id ?? Date.now().toString();
@@ -21,3 +29,4 @@ class TodoVO {
 }
 
 export default TodoVO;
+export type { ITodoVO };

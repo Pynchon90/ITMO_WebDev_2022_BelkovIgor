@@ -1,11 +1,5 @@
 <template>
   <h1 ref="header">App Counter</h1>
-  <input v-model="inputText" />
-  <button @click="onButtonClick" :disabled="isAllowedToSave">Add</button>
-  <h2 v-for="(todo, index) in list" :key="index">
-    {{ todo }}
-    <button @click="onDelete(index)">x</button>
-  </h2>
   <CounterValue
       v-if="isShown"
       class="counter"
@@ -14,6 +8,7 @@
       :value="counter"
       :key="obj.index"
   />
+  {{ isShown ? 'More than 10' : 'Less than 10' }}
   <button v-on:click="onPlus">+</button>
   <button v-if="canRenderMinusButton" @click="onMinus">-</button>
 </template>
@@ -29,39 +24,23 @@ const save = (key, value) => localStorage.setItem(key, value);
 let counterWatcher = null;
 
 export default {
+  name: 'AppCounter',
   components: {
     CounterValue,
   },
   data() {
     return {
       counter: 0,
-      inputText: '',
-      list: [],
     };
   },
   created() {
     console.log('> created: ', this.counter);
-    this.list = JSON.parse(localStorage.getItem(LOCAL_KEY_LIST)) || [];
-    this.inputText = localStorage.getItem(LOCAL_KEY_TEXT) || '';
     this.counter = localStorage.getItem(LOCAL_KEY_COUNTER) || 0;
     counterWatcher = this.$watch(
         () => this.counter,
         (newValue, oldValue) => {
           console.log('> counter watched:', { newValue, oldValue });
           save(LOCAL_KEY_COUNTER, newValue);
-        },
-    );
-    this.$watch(
-        () => this.inputText,
-        (value) => {
-          save(LOCAL_KEY_TEXT, value);
-        },
-    );
-    this.$watch(
-        () => this.list.length,
-        (value) => {
-          console.log('> watch: list =', value);
-          save(LOCAL_KEY_LIST, JSON.stringify(this.list));
         },
     );
   },
@@ -80,13 +59,6 @@ export default {
     },
   },
   methods: {
-    onDelete(index) {
-      this.list.splice(index, 1);
-    },
-    onButtonClick() {
-      this.list.push(this.inputText);
-      this.inputText = '';
-    },
     onPlus() {
       this.counter++;
       console.log('> Counter -> onPlus:', this.counter, this);
