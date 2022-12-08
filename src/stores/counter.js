@@ -1,6 +1,5 @@
 import { ref, computed } from 'vue';
 import { defineStore } from 'pinia';
-import type { ITodoVO } from '@/model/vos/TodoVO';
 
 export const useCounterStore = defineStore('counter', () => {
   const count = ref(0);

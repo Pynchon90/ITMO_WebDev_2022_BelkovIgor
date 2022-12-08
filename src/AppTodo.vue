@@ -5,97 +5,96 @@ import { alpha, helpers, minLength, required, and, or } from '@vuelidate/validat
 import TodoVO from '@/model/vos/TodoVO';
 import Spinner from '@/components/Spinner.vue';
 import type { ITodoVO } from '@/model/vos/TodoVO';
+import { useTodosStore } from '@/stores/todos';
+import { storeToRefs } from 'pinia';
 
-interface State {
-  todos: ITodoVO[];
-  selected?: ITodoVO | null;
-  isLoading: boolean;
-}
-
-const LOCAL_KEY_TODOS = 'todos';
 const LOCAL_KEY_TEXT = 'text';
 
 const getLocalText = () => localStorage.getItem(LOCAL_KEY_TEXT) || '';
-const getTodoIndex = (todo: ITodoVO): number => store.todos.indexOf(todo);
+const setInputTitleText = (text: string) => (inputTitleText.value = text);
+const setDomButtonCreateText = (text: string) => ((domButtonCreate.value! as HTMLElement).innerText = text);
 
-const updateSelectedTodoTitle = (title: string) => ((store.selected! as TodoVO).title = title);
-const createTodoFromTitle = (title: string) => store.todos.push(TodoVO.createFromTitle(title));
+const domButtonCreate = ref(null);
+const inputTitleText = ref(getLocalText());
 
-const domBtnAction = ref(null);
-const titleText = ref(getLocalText());
-const state: State = reactive({
-  todos: JSON.parse(localStorage.getItem(LOCAL_KEY_TODOS) as string) || [],
-  selected: null,
-  isLoading: false,
-});
-const store = useTodoStore();
+const store = useTodosStore();
 
+const { todos, isLoading } = storeToRefs(store);
+const { checkTodoSelected } = store;
+
+const cyrillicValidator = helpers.regex(/^[А-Яа-яёЁ]+$/i);
 const validator = useVuelidate(
     {
-      titleText: { titleText: { required, minLength: minLength(3), alpha },},
+      inputTitleText: {
+        isValid: and(required, minLength(3), or(alpha, cyrillicValidator)),
+      },
     },
-    { titleText },
+    { inputTitleText },
 );
 
 const validate = () => validator.value.$validate();
 
-
-const isTodoSelected = (todo: TodoVO) => state.selected === todo;
-const isSelectedActive = () => !!store.selected;
-const isTodoNotSelected = () => !store.isSelectedActive;
 const isActionButtonDisabled = computed(() => {
-  return validator.value.titleText.$error || (store.isSelectedActive() && titleText.value === store.selected?.title);
+  return validator.value.inputTitleText.$error || store.compareTextWithSelectedTodoTitle(inputTitleText.value);
 });
+
+const selectTodo = (todo: ITodoVO) => {
+  store.setupSelectedTodo(todo);
+  setInputTitleText(todo.title);
+  setDomButtonCreateText('Update');
+};
+
+const deselectTodo = () => {
+  store.setupSelectedTodo(null);
+  setInputTitleText(getLocalText());
+  setDomButtonCreateText('Create');
+};
 
 const onTodoListItemClicked = (todo: ITodoVO) => {
   console.log('> onTodoListItemClicked', todo);
-  const isSelected = (todo);
-  state.selected = isSelected ? null : todo;
-  titleText.value = isSelected ? getLocalText() : todo.title;
-  (domBtnAction.value! as HTMLElement).innerText = isSelected ? 'Create' : 'Update';
+  if (store.checkTodoSelected(todo)) {
+    deselectTodo();
+  } else {
+    selectTodo(todo);
+  }
 };
 const onDeleteTodo = (todo: ITodoVO) => {
   console.log('> onTodoListItemClicked', todo);
-  if (isTodoSelected(todo)) onTodoListItemClicked(todo);
-  state.todos.splice(getTodoIndex(todo), 1);
+  if (store.checkTodoSelected(todo)) {
+    deselectTodo();
+  }
+  store.deleteTodo(todo);
 };
 const onCreateButtonClick = () => {
-  console.log('> onCreateButtonClick', state);
-  if (isSelectedActive()) {
-    updateSelectedTodoTitle(titleText.value);
-    onTodoListItemClicked(state.selected!);
+  console.log('> onCreateButtonClick', store.hasSelectedTodo);
+  if (store.hasSelectedTodo) {
+    store.updateSelectedTodoTitle(inputTitleText.value);
+    deselectTodo();
   } else {
-    createTodoFromTitle(titleText.value);
-    titleText.value = '';
+    store.createTodoFromText(inputTitleText.value);
+    setInputTitleText('');
   }
   validate();
 };
-const onInputKeyEnter = () => {
-  console.log('onInputKeyEnter', {isActionButtonDisabled});
-  if (!isActionButtonDisabled.value) onCreateButtonClick();
-};
 
-watch(state.todos, (value) => localStorage.setItem(LOCAL_KEY_TODOS, JSON.stringify(value)));
-watch(titleText, (value) => isTodoNotSelected() && localStorage.setItem(LOCAL_KEY_TEXT, value));
-onMounted(
-    () => (
-        validate(),
-            setTimeout(() => {
-              state.isLoading = false;
-            }, 1000)
-    ),
-);
+watch(inputTitleText, (value) => {
+  console.log('input', inputTitleText);
+  if (!store.hasSelectedTodo) {
+    localStorage.setItem(LOCAL_KEY_TEXT, value);
+  }
+});
+onMounted(() => validate());
 </script>
 <template>
-  <Spinner v-if="state.isLoading" />
+  <Spinner v-if="isLoading" />
   <main v-else>
-    <input v-model="titleText" @keyup.enter="onInputKeyEnter" @keyup="validate" />
-    <button ref="domBtnAction" @click="onCreateButtonClick" :disabled="isActionButtonDisabled">Create</button>
+    <input v-model="inputTitleText" @keyup.enter="onCreateButtonClick" @keyup="validate" />
+    <button ref="domButtonCreate" @click="onCreateButtonClick" :disabled="isActionButtonDisabled">Create</button>
     <ol>
       <li
-          v-for="todo in state.todos"
+          v-for="todo in todos"
           @click.self="onTodoListItemClicked(todo)"
-          :class="{ selected: state.selected === todo }"
+          :class="{ selected: checkTodoSelected(todo) }"
           :key="todo.id"
       >
         {{ todo.title }}
@@ -117,14 +116,12 @@ onMounted(
   height: 100%;
   zoom: 0.5;
 }
-
 li {
   padding: 0.25rem;
   margin: 0.25rem 0;
   user-select: none;
   position: relative;
   box-sizing: border-box;
-
   &:hover {
     background-color: #fcfcfc;
     & > button {

@@ -14,15 +14,11 @@
 </template>
 <script>
 import CounterValue from './components/CounterValue.vue';
-
 const LOCAL_KEY_COUNTER = 'counter';
 const LOCAL_KEY_TEXT = 'text';
 const LOCAL_KEY_LIST = 'list';
-
 const save = (key, value) => localStorage.setItem(key, value);
-
 let counterWatcher = null;
-
 export default {
   name: 'AppCounter',
   components: {
