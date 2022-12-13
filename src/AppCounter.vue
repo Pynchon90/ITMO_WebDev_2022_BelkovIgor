@@ -9,8 +9,8 @@
       :key="obj.index"
   />
   {{ isShown ? 'More than 10' : 'Less than 10' }}
-  <button v-on:click="onPlus">+</button>
-  <button v-if="canRenderMinusButton" @click="onMinus">-</button>
+  <vs-button style="margin-right: 0.5rem" color="warning" v-on:click="onPlus">+</vs-button>
+  <vs-button color="warning" v-if="canRenderMinusButton" @click="onMinus">-</vs-button>
 </template>
 <script>
 import CounterValue from './components/CounterValue.vue';

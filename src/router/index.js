@@ -1,13 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import HomeView from '../views/HomeView.vue';
-// import AppTodo from '@/src/views/AppTodo.vue';
-import AboutView from '../views/AboutView.vue';
+import Routes from '@/consts/Routes.js';
 import AppTodo from '@/AppTodo.vue';
-import Routes from '../consts/Routes';
-
-const TodoId = {
-  template: '<div>ID {{ $route.params.id }}</div>',
-};
+import AboutView from '@/views/AboutView.vue';
+import TodoItemView from '@/views/TodoItemView.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -20,7 +15,7 @@ const router = createRouter({
     {
       path: '/todo/:id',
       name: 'todo-id',
-      component: TodoId,
+      component: TodoItemView,
     },
     {
       path: Routes.ABOUT,

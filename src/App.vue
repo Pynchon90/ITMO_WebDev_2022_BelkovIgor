@@ -21,7 +21,7 @@ const canRenderNumberOfTodos = ref(isCurrentRouteIndex());
 </script>
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
+    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="25" height="25" />
     <div v-if="canRenderNumberOfTodos">Todos created: {{ numberOfTodos }}</div>
     <div>Current route: {{ $route.path }}</div>
     <div class="wrapper">
@@ -33,7 +33,7 @@ const canRenderNumberOfTodos = ref(isCurrentRouteIndex());
   </header>
   <main>
     <RouterView v-slot="{ Component }">
-      <KeepAlive>
+      <KeepAlive exclude="TodoItemView">
         <component :is="Component" />
       </KeepAlive>
     </RouterView>
@@ -44,6 +44,9 @@ const canRenderNumberOfTodos = ref(isCurrentRouteIndex());
 header {
   line-height: 1.5;
   max-height: 100vh;
+}
+header .wrapper{
+  margin: 2rem;
 }
 
 .logo {
