@@ -1,64 +1,24 @@
 {
-  "name": "vue-lessons",
-  "version": "0.0.0",
-  "private": true,
+  "name": "itmo_webdev_2022_belkovigor",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview",
-    "test:unit": "vitest --environment jsdom --root src/",
-    "test:e2e": "start-server-and-test preview'cypress run --e2e'",
-    "test:e2e:dev": "start-server-and-test 'vite dev' 'cypress open --e2e'",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "dev": "pm2 start ecosystem.config.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pynchon90/ITMO_WebDev_2022_BelkovIgor.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Pynchon90/ITMO_WebDev_2022_BelkovIgor/issues"
+  },
+  "homepage": "https://github.com/Pynchon90/ITMO_WebDev_2022_BelkovIgor#readme",
   "dependencies": {
-    "@vuelidate/core": "^2.0.0",
-    "@vuelidate/validators": "^2.0.0",
-    "pinia": "^2.0.26",
-    "pinia-plugin-persistedstate": "^3.0.1",
-    "prettier": "^2.7.1",
-    "vue": "^3.2.45",
-    "vue-router": "^4.1.6"
-  },
-  "prettier": {
-    "printWidth": 120,
-    "singleQuote": true
-  },
-  "devDependencies": {
-    "@babel/core": "^7.20.5",
-    "@rushstack/eslint-patch": "^1.1.4",
-    "@storybook/addon-actions": "^6.5.14",
-    "@storybook/addon-essentials": "^6.5.14",
-    "@storybook/addon-interactions": "^6.5.14",
-    "@storybook/addon-links": "^6.5.14",
-    "@storybook/builder-vite": "^0.2.5",
-    "@storybook/testing-library": "^0.0.13",
-    "@storybook/vue3": "^6.5.14",
-    "@types/node": "^18.11.9",
-    "@vitejs/plugin-vue": "^3.2.0",
-    "@vue/eslint-config-prettier": "^7.0.0",
-    "@vue/eslint-config-typescript": "^11.0.0",
-    "@vue/test-utils": "^2.2.4",
-    "@vue/tsconfig": "^0.1.3",
-    "autoprefixer": "^10.4.13",
-    "babel-loader": "^8.3.0",
-    "cypress": "^11.2.0",
-    "eslint": "^8.22.0",
-    "eslint-plugin-vue": "^9.3.0",
-    "jsdom": "^20.0.3",
-    "npm-run-all": "^4.1.5",
-    "postcss": "^8.4.19",
-    "prettier": "^2.7.1",
-    "sass": "^1.56.1",
-    "scss": "^0.2.4",
-    "start-server-and-test": "^1.14.0",
-    "tailwindcss": "^3.2.4",
-    "typescript": "~4.7.4",
-    "vite": "^3.2.4",
-    "vitest": "^0.25.3",
-    "vue-loader": "^16.8.3",
-    "vue-tsc": "^1.0.11",
-    "vuesax3": "^4.1.1"
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2"
   }
 }
