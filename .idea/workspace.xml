@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="866e9a8f-40f3-4dfc-8ed3-a3768122dad7" name="Changes" comment="Added Asteroids">
+      <change afterPath="$PROJECT_DIR$/database.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,12 +38,12 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;ToolWindowMessages.ShowToolbar&quot;: &quot;false&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/sergt/OneDrive/Документы/ITMO_WebDev_Invoice&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/sergt/OneDrive/Документы/Book_Store&quot;,
     &quot;node.js.detected.package.stylelint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.stylelint&quot;: &quot;&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
     &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;C:\\Users\\sergt\\OneDrive\\Документы\\ITMO_WebDev_2022_BelkovIgor\\node_modules\\prettier&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.prettier&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;ssh.settings&quot;,
     &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\sergt\\OneDrive\\Документы\\ITMO_WebDev_2022_BelkovIgor\\node_modules\\typescript\\lib&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
@@ -62,6 +65,9 @@
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration>C:\Users\sergt\AppData\Roaming\Subversion</configuration>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="866e9a8f-40f3-4dfc-8ed3-a3768122dad7" name="Changes" comment="" />
@@ -137,7 +143,8 @@
       <workItem from="1670665454153" duration="1300000" />
       <workItem from="1670946510840" duration="161000" />
       <workItem from="1670946687349" duration="12941000" />
-      <workItem from="1671119913758" duration="4592000" />
+      <workItem from="1671119913758" duration="6804000" />
+      <workItem from="1671729827267" duration="6654000" />
     </task>
     <task id="LOCAL-00001" summary="Added Asteroids">
       <created>1667501124519</created>

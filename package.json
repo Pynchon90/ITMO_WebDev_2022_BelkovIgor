@@ -19,6 +19,7 @@
   "homepage": "https://github.com/Pynchon90/ITMO_WebDev_2022_BelkovIgor#readme",
   "dependencies": {
     "dotenv": "^16.0.3",
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "sqlite3": "^5.1.4"
   }
 }
