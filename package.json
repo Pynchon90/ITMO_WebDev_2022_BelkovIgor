@@ -1,25 +1,25 @@
 {
-  "name": "itmo_webdev_2022_belkovigor",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "books-store",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
   "scripts": {
-    "dev": "pm2 start ecosystem.config.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "vite",
+    "build": "vue-tsc && vite build",
+    "preview": "vite preview"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Pynchon90/ITMO_WebDev_2022_BelkovIgor.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Pynchon90/ITMO_WebDev_2022_BelkovIgor/issues"
-  },
-  "homepage": "https://github.com/Pynchon90/ITMO_WebDev_2022_BelkovIgor#readme",
   "dependencies": {
-    "dotenv": "^16.0.3",
-    "express": "^4.18.2",
-    "sqlite3": "^5.1.4"
+    "pocketbase": "^0.9.0",
+    "vue": "^3.2.45"
+  },
+  "devDependencies": {
+    "prettier": "^2.8.1",
+    "typescript": "^4.9.3",
+    "vite": "^4.0.0",
+    "vue-tsc": "^1.0.11"
+  },
+  "prettier": {
+    "singleQuote": "true",
+    "trailingComma": "all"
   }
 }
