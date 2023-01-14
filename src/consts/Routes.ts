@@ -1,6 +1,6 @@
 export default {
-    INDEX: '/',
-    BOOKS: '/books',
-    LOGIN: '/login',
-    REGISTER: '/register',
+  INDEX: '/',
+  BOOKS: '/books',
+  LOGIN: '/login',
+  REGISTER: '/register',
 };

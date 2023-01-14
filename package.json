@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --mode debug",
     "build": "vue-tsc && vite build",
     "preview": "vite preview"
   },
@@ -21,7 +21,7 @@
     "vue-tsc": "^1.0.11"
   },
   "prettier": {
-    "singleQuote": "true",
+    "singleQuote": true,
     "trailingComma": "all"
   }
 }
