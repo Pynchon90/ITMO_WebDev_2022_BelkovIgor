@@ -2,17 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="866e9a8f-40f3-4dfc-8ed3-a3768122dad7" name="Changes" comment="Added Asteroids">
-      <change afterPath="$PROJECT_DIR$/src/components/RegistrationForm.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/LoginPage.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MainHeader.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MainHeader.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/BooksListPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/BooksPage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/IndexPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/IndexPage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/UserLoginPage.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/UserRegisterPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/RegisterPage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/router.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/router.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vscode/extensions.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/client-audiophile.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/client-databiz.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/client-maker.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/client-meet.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/favicon-32x32.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/icon-arrow-down.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/icon-arrow-up.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/icon-calendar.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/icon-close-menu.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/icon-menu.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/icon-planning.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/icon-reminders.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/icon-todo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/image-hero-desktop.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/image-hero-mobile.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/logo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/background.jpg" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,7 +52,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "ToolWindowMessages.ShowToolbar": "false",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/sergt/OneDrive/Документы/ITMO_Lesson-39",
+    "last_opened_file_path": "C:/Users/sergt/OneDrive/Документы/ITMO_Lesson-39/ITMO_WebDev_2022_VladimirMinkin",
     "node.js.detected.package.stylelint": "true",
     "node.js.selected.package.stylelint": "",
     "nodejs_package_manager_path": "yarn",
@@ -156,6 +164,7 @@
       <workItem from="1671869950497" duration="4484000" />
       <workItem from="1672329293428" duration="8130000" />
       <workItem from="1673365007091" duration="3419000" />
+      <workItem from="1673682001764" duration="279000" />
     </task>
     <task id="LOCAL-00001" summary="Added Asteroids">
       <created>1667501124519</created>
@@ -191,7 +200,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/pages/LoginPage.vue</url>
-          <line>36</line>
+          <line>40</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
