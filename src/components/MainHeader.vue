@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 import Routes from '../consts/Routes';
-import { useRouter } from "vue-router";
+import { useRouter } from 'vue-router';
 
-const props = defineProps<{ userData?: any }>();
+const props: any = defineProps<{ userData?: any }>();
 const router = useRouter();
 
 const isUserAuthenticated = computed(() => !!props.userData);
@@ -16,10 +16,9 @@ const isCurrentPageNotBooks = computed(() => {
   const currentRoute = router.currentRoute.value;
   return currentRoute.path !== Routes.BOOKS;
 });
-
 </script>
 <template>
-  <header style="width: 100%; padding: 1rem; background-color: lightgrey;">
+  <header style="width: 100%; padding: 1rem; background-color: lightgrey">
     <h2>Header</h2>
     <div v-if="isUserAuthenticated">
       {{ userData.username }}

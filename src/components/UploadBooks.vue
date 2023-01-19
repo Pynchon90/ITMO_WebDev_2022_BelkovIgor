@@ -31,14 +31,14 @@ const onUploadClick = () => {
   input.onchange = () => {
     const fileList = input.files as FileList;
     const selectedFile = fileList[0];
-    console.log('selectedFile:', selectedFile);
     const reader = new FileReader();
+    console.log('selectedFile:', selectedFile);
     input.disabled = true;
     reader.onload = async () => {
       const books = JSON.parse(reader.result! as string);
       console.log('selectedFile:', books);
       try {
-        await insertBooks({ books: books.slice(0, 2) });
+        await insertBooks({ books });
       } catch (e) {
         console.log(e);
       }
