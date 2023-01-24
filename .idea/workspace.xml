@@ -2,25 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="866e9a8f-40f3-4dfc-8ed3-a3768122dad7" name="Changes" comment="Added Asteroids">
+      <change afterPath="$PROJECT_DIR$/.eslintrc.cjs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/UserModel.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/.env.example" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vscode/extensions.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/client-audiophile.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/client-databiz.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/client-maker.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/client-meet.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/favicon-32x32.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/icon-arrow-down.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/icon-arrow-up.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/icon-calendar.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/icon-close-menu.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/icon-menu.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/icon-planning.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/icon-reminders.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/icon-todo.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/image-hero-desktop.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/image-hero-mobile.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/logo.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/background.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javascript.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/HelloWorld.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HelloWorld.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/MainHeader.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MainHeader.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/RegistrationForm.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/RegistrationForm.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/UploadBooks.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UploadBooks.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/graphql/apollo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/graphql/apollo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/BooksPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/BooksPage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/IndexPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/IndexPage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/LoginPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/LoginPage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/RegisterPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/RegisterPage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/router/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stores/counter.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/AboutView.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/HomeView.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,22 +51,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "ToolWindowMessages.ShowToolbar": "false",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/sergt/OneDrive/Документы/ITMO_Lesson-39/ITMO_WebDev_2022_VladimirMinkin",
-    "node.js.detected.package.stylelint": "true",
-    "node.js.selected.package.stylelint": "",
-    "nodejs_package_manager_path": "yarn",
-    "prettierjs.PrettierConfiguration.Package": "C:\\Users\\sergt\\OneDrive\\Документы\\ITMO_WebDev_2022_BelkovIgor\\node_modules\\prettier",
-    "settings.editor.selected.configurable": "configurable.group.appearance",
-    "ts.external.directory.path": "C:\\Users\\sergt\\OneDrive\\Документы\\ITMO_WebDev_2022_BelkovIgor\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;ToolWindowMessages.ShowToolbar&quot;: &quot;false&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/sergt/OneDrive/Документы/ITMO_Lesson-39/ITMO_WebDev_2022_VladimirMinkin&quot;,
+    &quot;node.js.detected.package.stylelint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.stylelint&quot;: &quot;&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;C:\\Users\\sergt\\OneDrive\\Документы\\ITMO_WebDev_2022_BelkovIgor\\node_modules\\prettier&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.appearance&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\sergt\\OneDrive\\Документы\\ITMO_WebDev_2022_BelkovIgor\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\sergt\OneDrive\Документы\ITMO_WebDev_2022_BelkovIgor\src\components" />
@@ -200,7 +205,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/pages/LoginPage.vue</url>
-          <line>40</line>
+          <line>38</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

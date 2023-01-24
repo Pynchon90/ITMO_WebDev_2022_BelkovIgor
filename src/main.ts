@@ -3,22 +3,12 @@ import { createApp } from 'vue';
 import { provideApolloClient } from '@vue/apollo-composable';
 import './style.css';
 import apolloClient from './graphql/apollo';
-import Routes from './consts/Routes';
+// import Routes from './consts/Routes';
 import router from './router';
 import App from './App.vue';
+import UserModel from './model/UserModel';
 
-// const pb = new PocketBase(import.meta.env.VITE_DATABASE_URL);
-// pb.authStore.clear();
-// const checkUserAuthenticated = (): boolean => pb.authStore.isValid;
-// console.log('> pb.authStore.isValid:', pb.authStore.isValid);
-
-// router.beforeEach((to, from, next) => {
-//   const authRoutes = [Routes.INDEX, Routes.LOGIN, Routes.REGISTER];
-//   const indexOfAuthRoute = authRoutes.indexOf(to.path);
-//   if (indexOfAuthRoute < 0 && !checkUserAuthenticated()) {
-//     next({ path: Routes.LOGIN });
-//   } else next();
-// });
+const userModel = new UserModel();
 
 const app = createApp(App);
 

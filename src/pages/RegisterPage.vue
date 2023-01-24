@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { inject, ref } from 'vue';
 import Routes from '../consts/Routes';
-import RegistrationForm from "../components/RegistrationForm.vue";
+import RegistrationForm from '../components/RegistrationForm.vue';
 
 const pb: any = inject('pb');
 const errors = ref<string[]>([]);
@@ -11,7 +11,8 @@ const handleRegister = async (data: any) => {
   console.log('> handleRegister', { ...data });
   errors.value = [];
   console.log('\t pb', pb);
-  await pb.collection('users')
+  await pb
+    .collection('users')
     .create({
       username: data.username,
       password: data.password,
@@ -25,8 +26,9 @@ const handleRegister = async (data: any) => {
       console.log('> handleRegister -> error:', e.data.data);
       const data = e.data.data;
       errors.value.push(e.toString());
-      for (let item in data) {
-        const message = `${item}: ${data[item].message}`;
+      let item, message;
+      for (item in data) {
+        message = `${item}: ${data[item].message}`;
         errors.value.push(message);
       }
     });
@@ -34,11 +36,7 @@ const handleRegister = async (data: any) => {
 </script>
 
 <template>
-  <RegistrationForm v-if="!isSuccess" title="Registration"
-    :errors="errors"
-    registration
-    @register="handleRegister"
-  >
+  <RegistrationForm v-if="!isSuccess" title="Registration" :errors="errors" registration @register="handleRegister">
     <RouterLink :to="Routes.LOGIN">
       <small>Login</small>
     </RouterLink>
