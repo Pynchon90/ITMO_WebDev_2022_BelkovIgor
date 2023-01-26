@@ -1,5 +1,6 @@
 export interface IUserData {
   name: string;
+  id: string;
 }
 
 type ObserverListener = () => void;

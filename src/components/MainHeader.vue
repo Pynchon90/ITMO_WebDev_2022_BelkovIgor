@@ -7,7 +7,7 @@ import type { IUserData } from '../model/UserModel';
 const emit = defineEmits(['logout']);
 
 const props: any = withDefaults(defineProps<{ userData?: IUserData, showLogout: boolean }>(), {
-  showLogout: false,
+  showLogout: true,
   userData: undefined,
 });
 const router = useRouter();

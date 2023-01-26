@@ -10,9 +10,10 @@ import userModel from './model/UserModel';
 router.beforeEach((to, from, next) => {
   const authRoutes = [Routes.INDEX, Routes.LOGIN, Routes.REGISTER];
   const indexOfAuthRoute = authRoutes.indexOf(to.path);
-  if (indexOfAuthRoute < 0 && !userModel.isAuthenticated) {
-    next({ path: Routes.LOGIN });
-  } else next();
+  const isRouteAllowedForNotLoggedInUser = indexOfAuthRoute > -1;
+  if (isRouteAllowedForNotLoggedInUser || userModel.isAuthenticated) {
+    next();
+  } else next({ path: Routes.LOGIN });
 });
 
 const app = createApp(App);
