@@ -1,23 +1,84 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="866e9a8f-40f3-4dfc-8ed3-a3768122dad7" name="Changes" comment="Added Asteroids">
+    <list default="true" id="e5901c98-b5a4-4afe-8cac-ae04361c11c1" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/components/Welcome.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/composables/useUser.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/layouts/default.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/books/[bookId].vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/books/index.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env.example" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.eslintignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.eslintrc.cjs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/prettier.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vscode/extensions.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apollo.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/counter.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cypress.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cypress/e2e/example.cy.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cypress/e2e/jsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cypress/fixtures/example.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cypress/support/commands.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cypress/support/e2e.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/index.a04aca6f.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/vite.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/postcss.config.cjs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vite.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/base.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/logo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/main.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/vue.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/HelloWorld.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/MainHeader.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/RegistrationForm.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/TheWelcome.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/UploadBooks.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/WelcomeItem.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/__tests__/HelloWorld.spec.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/books-list/BooksListControls.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/books-list/BooksListHeader.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/icons/IconCommunity.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/icons/IconDocumentation.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/icons/IconEcosystem.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/icons/IconSupport.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/icons/IconTooling.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/consts/Routes.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/graphql/apollo.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/UserModel.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/BooksPage.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/IndexPage.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/LoginPage.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/RegisterPage.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/router.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vite-env.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tailwind.config.cjs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.node.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vite.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vite.config.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/webcomponents.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn-error.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="JavaScript File" />
-      </list>
-    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -25,140 +86,40 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="2FWJmGwRWtLGU3s7SlT9IWqv9p0" />
+  <component name="ProjectId" id="2KwkeGdbtnYGojFDPZ4XxvV3JB5" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;ToolWindowMessages.ShowToolbar&quot;: &quot;false&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/sergt/OneDrive/Документы/ITMO_Lesson-39/ITMO_WebDev_2022_VladimirMinkin&quot;,
-    &quot;node.js.detected.package.stylelint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.stylelint&quot;: &quot;&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
-    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;C:\\Users\\sergt\\OneDrive\\Документы\\ITMO_WebDev_2022_BelkovIgor\\node_modules\\prettier&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.appearance&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\sergt\\OneDrive\\Документы\\ITMO_WebDev_2022_BelkovIgor\\node_modules\\typescript\\lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/sergt/OneDrive/Документы/ITMO_WebDev_2022_BelkovIgor/pages/books",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "nodejs_package_manager_path": "yarn",
+    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2022.2\\plugins\\JavaScriptLanguage\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\sergt\OneDrive\Документы\ITMO_WebDev_2022_BelkovIgor\src\components" />
-      <recent name="C:\Users\sergt\OneDrive\Документы\ITMO_WebDev_2022_BelkovIgor" />
-      <recent name="C:\Users\sergt\OneDrive\Документы\ITMO_WebDev_2022_BelkovIgor\src" />
+      <recent name="C:\Users\sergt\OneDrive\Документы\ITMO_WebDev_2022_BelkovIgor\pages\books" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration name=".js" type="NodeJSConfigurationType" temporary="true" path-to-js-file="solar-system.js" working-dir="$PROJECT_DIR$/src">
-      <method v="2" />
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Node.js..js" />
-      </list>
-    </recent_temporary>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
-  <component name="SvnConfiguration">
-    <configuration>C:\Users\sergt\AppData\Roaming\Subversion</configuration>
-  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="866e9a8f-40f3-4dfc-8ed3-a3768122dad7" name="Changes" comment="" />
-      <created>1664602063810</created>
+      <changelist id="e5901c98-b5a4-4afe-8cac-ae04361c11c1" name="Changes" comment="" />
+      <created>1674893129709</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1664602063810</updated>
-      <workItem from="1664602065061" duration="273000" />
-      <workItem from="1664602350269" duration="278000" />
-      <workItem from="1664609396136" duration="5281000" />
-      <workItem from="1664824854950" duration="870000" />
-      <workItem from="1664825750527" duration="4397000" />
-      <workItem from="1664898152933" duration="5910000" />
-      <workItem from="1664905172994" duration="1349000" />
-      <workItem from="1664906548981" duration="129804000" />
-      <workItem from="1665060879258" duration="3637000" />
-      <workItem from="1665070527360" duration="2661000" />
-      <workItem from="1665073860421" duration="1675000" />
-      <workItem from="1665078331709" duration="1316000" />
-      <workItem from="1665079674405" duration="3581000" />
-      <workItem from="1665141766708" duration="8185000" />
-      <workItem from="1665212301620" duration="3916000" />
-      <workItem from="1665510581064" duration="617000" />
-      <workItem from="1665677036175" duration="717000" />
-      <workItem from="1665677776855" duration="2207000" />
-      <workItem from="1665680017845" duration="4985000" />
-      <workItem from="1665685848805" duration="3425000" />
-      <workItem from="1665817747185" duration="825000" />
-      <workItem from="1665818594631" duration="553000" />
-      <workItem from="1665819167238" duration="182000" />
-      <workItem from="1665819365749" duration="52000" />
-      <workItem from="1665819431822" duration="459000" />
-      <workItem from="1665819914254" duration="119000" />
-      <workItem from="1665820048631" duration="8198000" />
-      <workItem from="1666091194193" duration="683000" />
-      <workItem from="1666098306114" duration="3013000" />
-      <workItem from="1666107323773" duration="481000" />
-      <workItem from="1666107890833" duration="12092000" />
-      <workItem from="1666269256912" duration="4048000" />
-      <workItem from="1666273712994" duration="1256000" />
-      <workItem from="1666280467963" duration="13948000" />
-      <workItem from="1666416864159" duration="674000" />
-      <workItem from="1666422543824" duration="10379000" />
-      <workItem from="1666452833953" duration="8860000" />
-      <workItem from="1666709716110" duration="16000" />
-      <workItem from="1666709765927" duration="12389000" />
-      <workItem from="1666878143096" duration="22000" />
-      <workItem from="1666878256384" duration="1703000" />
-      <workItem from="1666884974780" duration="8286000" />
-      <workItem from="1667020821071" duration="56000" />
-      <workItem from="1667026850223" duration="11384000" />
-      <workItem from="1667296520616" duration="8000" />
-      <workItem from="1667296543489" duration="25000" />
-      <workItem from="1667297849596" duration="27000" />
-      <workItem from="1667298152724" duration="23000" />
-      <workItem from="1667301631321" duration="147000" />
-      <workItem from="1667317017235" duration="1371000" />
-      <workItem from="1667318522359" duration="11859000" />
-      <workItem from="1667484255328" duration="79000" />
-      <workItem from="1667489992723" duration="32000" />
-      <workItem from="1667490139926" duration="766000" />
-      <workItem from="1667492585484" duration="9236000" />
-      <workItem from="1667922621731" duration="12063000" />
-      <workItem from="1668094938457" duration="7740000" />
-      <workItem from="1668236817304" duration="10959000" />
-      <workItem from="1668526687763" duration="63286000" />
-      <workItem from="1669736970792" duration="30939000" />
-      <workItem from="1670341176601" duration="1199000" />
-      <workItem from="1670342675567" duration="10220000" />
-      <workItem from="1670514241689" duration="3888000" />
-      <workItem from="1670519350300" duration="6459000" />
-      <workItem from="1670664553951" duration="763000" />
-      <workItem from="1670665454153" duration="1300000" />
-      <workItem from="1670946510840" duration="161000" />
-      <workItem from="1670946687349" duration="12941000" />
-      <workItem from="1671119913758" duration="6804000" />
-      <workItem from="1671729827267" duration="6654000" />
-      <workItem from="1671867163359" duration="2739000" />
-      <workItem from="1671869950497" duration="4484000" />
-      <workItem from="1672329293428" duration="8130000" />
-      <workItem from="1673365007091" duration="3419000" />
-      <workItem from="1673682001764" duration="279000" />
+      <updated>1674893129709</updated>
+      <workItem from="1674893134631" duration="8888000" />
     </task>
-    <task id="LOCAL-00001" summary="Added Asteroids">
-      <created>1667501124519</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1667501124519</updated>
-    </task>
-    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -174,21 +135,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="Changes" />
-    <MESSAGE value="Added Asteroids" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Asteroids" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/pages/LoginPage.vue</url>
-          <line>61</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

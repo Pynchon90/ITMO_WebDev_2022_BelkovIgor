@@ -1,48 +1,13 @@
 {
-  "name": "books-store",
   "private": true,
-  "version": "0.0.0",
-  "type": "module",
   "scripts": {
-    "dev": "vite --mode debug",
-    "eslint": "eslint --ext .js,.ts,.vue src",
-    "build": "vue-tsc && vite build",
-    "preview": "vite preview"
-  },
-  "dependencies": {
-    "@apollo/client": "^3.7.4",
-    "@vue/apollo-composable": "^4.0.0-beta.1",
-    "autoprefixer": "^10.4.13",
-    "graphql": "^16.6.0",
-    "graphql-tag": "^2.12.6",
-    "pocketbase": "^0.9.0",
-    "postcss": "^8.4.21",
-    "tailwindcss": "^3.2.4",
-    "vue": "^3.2.45",
-    "vue-router": "^4.1.6"
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.48.2",
-    "@typescript-eslint/parser": "^5.48.2",
-    "@vitejs/plugin-vue": "^4.0.0",
-    "@vue/eslint-config-typescript": "^11.0.2",
-    "eslint": "^8.32.0",
-    "eslint-config-prettier": "^8.6.0",
-    "eslint-plugin-prettier": "^4.2.1",
-    "eslint-plugin-vue": "^9.9.0",
-    "prettier": "^2.8.1",
-    "typescript": "^4.9.3",
-    "vite": "^4.0.0",
-    "vite-plugin-eslint": "^1.8.1",
-    "vue-eslint-parser": "^9.1.0",
-    "vue-tsc": "^1.0.11"
-  },
-  "prettier": {
-    "singleQuote": true,
-    "printWidth": 120,
-    "trailingComma": "all",
-    "useTabs": false,
-    "tabWidth": 2,
-    "endOfLine": "crlf"
+    "nuxt": "^3.1.0"
   }
 }
