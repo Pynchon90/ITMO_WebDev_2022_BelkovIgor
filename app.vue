@@ -1,20 +1,18 @@
 <script setup lang="ts">
-const setting = useRuntimeConfig();
-const user = useState('user')
-if (user.value == null) useFetch(`${setting.DATA_API}/users/1`)
-  .then((response) => {
-    user.value = response.data;
-  });
-const { data: comments } = useFetch(`${setting.DATA_API}/comments`)
-console.log('App -> Loading:', setting.DATA_API);
+const user = useUser();
+const books = useBooks();
+const { data: userData, pending: isUserLoading } = user.getUser();
+const { pending: isBooksLoading } = books.getAll();
+const { data: users } = useFetch('/api/users');
+console.log('App -> Loading:', { users: users.value, isUserLoading });
 </script>
 <template>
-  <div v-if="!(user && comments)">Loading...</div>
-  <NuxtLayout v-else>
-    <div>User {{ user.name }}</div>
+  <div v-if="isBooksLoading && isUserLoading">Loading...</div>
+  <div v-else>
+    <div>User {{ userData.name }}</div>
     <NuxtPage :transition="{
-        name: 'slide-left',
-        mode: 'out-in'
-      }" />
-  </NuxtLayout>
+      name: 'slide-left',
+      mode: 'out-in'
+    }" />
+  </div>
 </template>

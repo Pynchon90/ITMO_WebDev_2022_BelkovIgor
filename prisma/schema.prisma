@@ -1,0 +1,61 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model books {
+  id         Int          @id @default(autoincrement())
+  author     String
+  country    String
+  language   String
+  link       String
+  pages      Int
+  title      String
+  year       Int
+  created_at DateTime     @default(now()) @db.Timestamptz(6)
+  updated_at DateTime     @default(now()) @db.Timestamptz(6)
+  imageLink  String
+  user_books user_books[]
+}
+
+model customer {
+  id         Int     @id
+  first_name String?
+  last_name  String?
+  email      String?
+  phone      String?
+  username   String?
+  ip_address String?
+  order      order[]
+}
+
+model order {
+  id             Int       @id
+  transaction_id String?
+  product        String?
+  purchase_price String?
+  discount_price String?
+  order_date     String?
+  customer_id    Int?
+  customer       customer? @relation(fields: [customer_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model user_books {
+  id      Int    @id @default(autoincrement())
+  user_id String @db.Uuid
+  book_id Int
+  books   books  @relation(fields: [book_id], references: [id], onUpdate: Restrict)
+  users   users  @relation(fields: [user_id], references: [id], onUpdate: Restrict)
+}
+
+model users {
+  id         String       @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  name       String
+  email      String       @unique
+  password   String?
+  user_books user_books[]
+}

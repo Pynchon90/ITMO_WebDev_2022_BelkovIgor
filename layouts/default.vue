@@ -1,10 +1,11 @@
+
 <template>
   <div>
-  Header
+    Header
     <div>
-      Menu
-      <div id="header-navigation"/>
+      <div>Menu</div>
+      <slot name="navigation"/>
     </div>
-  <slot/>
+    <slot />
   </div>
 </template>

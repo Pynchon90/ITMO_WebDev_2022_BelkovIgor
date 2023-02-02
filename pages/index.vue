@@ -2,9 +2,15 @@
 </script>
 <template>
   <div>
-    Index Page
-    <div>
-      <NuxtLink to="/books">Books</NuxtLink>
-    </div>
+    <NuxtLayout>
+      Index Page
+      <template #navigation>
+        <NuxtLink to="/books">
+          <ABtn variant="outline">
+            Books
+          </ABtn>
+        </NuxtLink>
+      </template>
+    </NuxtLayout>
   </div>
 </template>
