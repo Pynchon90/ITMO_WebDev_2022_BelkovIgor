@@ -1,0 +1,23 @@
+version: '3'
+services:
+  app:
+    build: .
+    image: app
+    container_name: app
+    ports:
+      - "3003:3003"
+    environment:
+      - PORT=3003
+      - DATABASE_URL=postgres://igorbel13:gQVp5mKxS4NF@noisy-cloud-585614.us-east-2.aws.neon.tech/neondb?options=project%3Dnoisy-cloud-585614&sslmode=require
+
+  nginx:
+    image: nginx
+    container_name: nginx
+    restart: "always"
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/hosts:/etc/nginx/conf.d
+    links:
+      - app
+
